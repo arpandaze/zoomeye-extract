@@ -7,7 +7,7 @@ import pickle
 
 # This a change station. You can change link filename and everything here.
 scrapingOutputFileName = "scrapedIPs"  # Enter the name of file to save scraped IPs.
-searchTerm = 'searchItem' #Enter your search term here. You must enter in exactly same pattern as in ZoomEye website.
+searchTerm = 'HIKVision' #Enter your search term here. You must enter in exactly same pattern as in ZoomEye website.
 cookieFileName = 'cookie' #Name of the cookie file.
 pageLoadoutTime = 60  # This is time to wait for page to load.
 totalNumberOfPages = 20 # Number of pages to scrape from.
@@ -25,6 +25,7 @@ for cookie in cookies:
     print(cookie)
     browser.add_cookie(cookie)
 browser.get(zoomeye)
+time.sleep(20)
 browser.find_element_by_class_name('header-profile-link').click()
 time.sleep(3)
 
