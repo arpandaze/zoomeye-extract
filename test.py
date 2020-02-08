@@ -1,5 +1,5 @@
 import requests
-import threading
+import multiprocessing
 
 with open('scrapedIPs.txt') as file:
     ipList = file.read().split("\n")
@@ -37,5 +37,16 @@ def fuckyou(inp_ip):
         print("This IP Sucks: {}\n".format(inp_ip))
         pass
 
+def luckyou(i):
+    print(i)
+
+if __name__ == "__main__":
+    for i in range(10):
+        procs = []
+        process = multiprocessing.Process(target=luckyou, args=(i,))
+        procs.append(process)
+        process.start()
+'''
 for i in range(len(brutIPList)):
-    threading.Thread(target=fuckyou, args=(brutIPList[i],)).start()
+    multiprocessing.Process(target=fuckyou, args=(brutIPList[i],)).start()
+'''
